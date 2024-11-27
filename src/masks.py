@@ -1,24 +1,15 @@
-card_number = int(input())
-accound_number = int(input())
+from typing import Union
 
 
-def get_mask_card_number(number_card: int) -> str:
-    """
-    Принимает на вход номер карты и возвращает ее маску.
-    """
-    str_number_card = str(number_card)
-    return f"{str_number_card[0:4]} {str_number_card[4:6]}** **** {str_number_card[-4:]}"
+def get_mask_card_number(card_number: Union[str | int]) -> str:
+    """Функция формирует замаскированный номер карты"""
+    card_number = str(card_number)  # Преобразуем в строку введенные данные
+    masked_number = f"{card_number[:4]} {card_number[4:6]}** **** {card_number[12:]}"
+    return masked_number
 
 
-print(get_mask_card_number(card_number))
-
-
-def get_mask_account(number_account: int) -> str:
-    """
-    Принимает на вход номер счета и возвращает его маску.
-    """
-    str_number_account = str(number_account)
-    return f"**{str_number_account[-4:]}"
-
-
-print(get_mask_account(accound_number))
+def get_mask_account(mask_account: Union[str | int]) -> str:
+    """Функция формирует замаскированный номер счета"""
+    mask_account = str(mask_account)  # Преобразуем в строку введенные данные
+    masked_account = f"**{mask_account[-4:]}"
+    return masked_account
