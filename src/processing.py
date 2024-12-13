@@ -1,6 +1,6 @@
-def filter_by_state(list_of_dict: list, state: str = 'EXECUTED') -> list:
+def filter_by_state(list_of_dict: list, state: str = "EXECUTED") -> list:
     """Функция, возвращающая список только тех словарей,
-       где ключу 'state' соответствуют аргументу state"""
+    где ключу 'state' соответствуют аргументу state"""
     state_exec_list_dicts = []
     for dict in list_of_dict:
         if dict.get("state") == state:

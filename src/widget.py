@@ -7,7 +7,7 @@ def mask_account_card(account_type_card_num: str) -> str:
     if len(account_type_card_num_list[-1]) < 20 and len(account_type_card_num) > 16:
         mask_card_number = get_mask_card_number(account_type_card_num_list[-1])
         account_type_card_num_list[-1] = mask_card_number
-        if mask_card_number == 'некорректный ввод':
+        if mask_card_number == "некорректный ввод":
             return "Некорректный ввод данных"
         return " ".join(account_type_card_num_list)
     if len(account_type_card_num_list[-1]) == 20 and len(account_type_card_num) == 25:
@@ -19,7 +19,7 @@ def mask_account_card(account_type_card_num: str) -> str:
 
 def get_date(date_and_time: str) -> str:
     """Функция, преобразующая date_and_time в ДД.ММ.ГГГГ"""
-    if type(date_and_time) != str:
+    if type(date_and_time) is not str:
         return "Неверный тип данных"
     if len(date_and_time) == 26 and date_and_time[4] == "-" and date_and_time[7] == "-" and date_and_time[-7] == ".":
         incorrect_date = f"{date_and_time[8:10]}.{date_and_time[5:7]}.{date_and_time[0:4]}"
