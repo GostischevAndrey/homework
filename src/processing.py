@@ -1,13 +1,13 @@
-def filter_by_state(list_of_dict: list, state: str = "EXECUTED") -> list:
+def filter_by_state(list_of_elem: list, state: str = "EXECUTED") -> list:
     """Функция, возвращающая список только тех словарей,
     где ключу 'state' соответствуют аргументу state"""
-    state_exec_list_dicts = []
-    for dict in list_of_dict:
-        if dict.get("state") == state:
-            state_exec_list_dicts.append(dict)
-        if "state" not in dict:
-            return list_of_dict
-    return state_exec_list_dicts
+    state_exec_list_elems = []
+    for elem in list_of_elem:
+        if elem.get("state") == state:
+            state_exec_list_elems.append(elem)
+        if "state" not in elem:
+            return list_of_elem
+    return state_exec_list_elems
 
 
 def sort_by_date(inform_state: list, reverse: bool = True) -> list:

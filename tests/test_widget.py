@@ -43,5 +43,5 @@ def test_get_date_basic() -> None:
         ("2018-14T08:21:33.419441", "Некорректное значение даты"),
     ],
 )
-def test_get_date_uncorrectly_date(value: str, expected: str) -> None:
+def test_get_date_uncorrected_date(value: str, expected: str) -> None:
     assert get_date(value) == expected
