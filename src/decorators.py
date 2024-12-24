@@ -28,6 +28,8 @@ def log(filename: Optional[str] = None) -> Callable[[Callable[..., Any]], Callab
                     with open(filename, "a+") as file:
                         file.write(f"{my_func.__name__} error: {e}. Inputs: {args}, {kwargs}")
 
+                return my_func
+
         return wrapper
 
     return decorator
