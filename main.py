@@ -1,9 +1,8 @@
+from src.decorators import log
+from src.generators import card_number_generator, filter_by_currency, transaction_descriptions
 from src.masks import get_mask_account, get_mask_card_number
-from src.widget import get_date, mask_account_card
 from src.processing import filter_by_state, sort_by_date
-from src.generators import filter_by_currency
-from src.generators import transaction_descriptions
-from src.generators import card_number_generator
+from src.widget import get_date, mask_account_card
 
 # print(mask_account_card("Maestro 1596837868705199"))
 # print(mask_account_card("Счет 64686473678894779589"))
@@ -88,3 +87,29 @@ transactions = [
 """def card_number_generator"""
 # for card_number in card_number_generator(1, 5):
 #     print(card_number)
+
+
+@log()
+def my_function(x, y):
+    return x + y
+
+
+result = my_function(121, 122)
+print("Result:", result)
+
+
+@log(filename="mylog.txt")
+def my_function(x, y):
+    return x + y
+
+
+my_function(1, 2)
+
+
+@log(filename="mylog.txt")
+def my_function(x, y):
+    return x / y
+
+
+my_function(10, 2)
+my_function(10, 0)
