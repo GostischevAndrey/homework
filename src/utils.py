@@ -1,6 +1,6 @@
 import json
 import os
-from typing import List, Dict, Any
+from typing import Any, Dict, List
 
 from src.external_api import get_amount
 
@@ -10,7 +10,7 @@ def load_transactions_from_json(file_path: str) -> List[Dict]:
     if not os.path.isfile(file_path):
         return []
 
-    with open(file_path, 'r', encoding='utf-8') as file:
+    with open(file_path, "r", encoding="utf-8") as file:
         try:
             data = json.load(file)
         except json.JSONDecodeError:

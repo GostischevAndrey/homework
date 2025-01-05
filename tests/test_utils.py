@@ -1,6 +1,5 @@
 import os
-
-from unittest.mock import patch, mock_open
+from unittest.mock import mock_open, patch
 
 import pytest
 
@@ -26,7 +25,7 @@ def path_mistake_json():
 
 
 def test_transactions_nofile():
-    assert load_transactions_from_json('nofile') == []
+    assert load_transactions_from_json("nofile") == []
 
 
 def test_load_transactions(path):
@@ -34,14 +33,11 @@ def test_load_transactions(path):
         "id": 441945886,
         "state": "EXECUTED",
         "date": "2019-08-26T10:50:58.294041",
-        "operationAmount": {
-            "amount": "31957.58",
-            "currency": {
-             "name": "руб.",
-             "code": "RUB"}},
+        "operationAmount": {"amount": "31957.58", "currency": {"name": "руб.", "code": "RUB"}},
         "description": "Перевод организации",
         "from": "Maestro 1596837868705199",
-        "to": "Счет 64686473678894779589"}
+        "to": "Счет 64686473678894779589",
+    }
 
 
 def test_load_transactions_empty_list(path_empty_list):
@@ -52,11 +48,11 @@ def test_load_transactions_mistake_json(path_mistake_json):
     assert load_transactions_from_json(path_mistake_json) == []
 
 
-
 def test_load_transactions_from_json_with_invalid_json():
     with patch("builtins.open", mock_open(read_data="invalid_json")):
         result = load_transactions_from_json("dummy_path.json")
         assert result == []
+
 
 def test_load_transactions_from_json_with_non_existent_file():
     result = load_transactions_from_json("non_existent_file.json")
@@ -65,21 +61,16 @@ def test_load_transactions_from_json_with_non_existent_file():
 
 @pytest.fixture
 def sample_transaction():
-    return {
-        "operationAmount": {
-            "amount": 100,
-            "currency": {"code": "USD"}
-        }
-    }
+    return {"operationAmount": {"amount": 100, "currency": {"code": "USD"}}}
+
 
 @pytest.fixture
 def mock_get_amount():
-    with patch('src.external_api.get_amount') as mock:
+    with patch("src.external_api.get_amount") as mock:
         yield mock
+
 
 def test_transaction_amount_with_same_currency(sample_transaction):
     sample_transaction["operationAmount"]["currency"]["code"] = "RUB"
     amount = transaction_amount(sample_transaction)
     assert amount == 100
-
-
