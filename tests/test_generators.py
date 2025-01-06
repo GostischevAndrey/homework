@@ -124,9 +124,11 @@ def test_currency_not_fond():
     result = filter_by_currency(usd_transaction, "RUB")
     assert not list(result)
 
+
 def test_transaction_descriptions_list_is_empty():
     result = transaction_descriptions([])
     assert not list(result)
+
 
 def test_transaction_descriptions(transaction_list):
     des = transaction_descriptions(transaction_list)
