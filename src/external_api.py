@@ -1,4 +1,5 @@
 import os
+from typing import Any
 
 import requests
 from dotenv import load_dotenv
@@ -8,7 +9,7 @@ load_dotenv()
 API_KEY = os.getenv("API_KEY")
 
 
-def get_amount(transaction: dict) -> float:
+def get_amount(transaction: dict) -> Any:
     """Функция принимает на вход транзакцию, конвертирует сумму в рубли и возвращает сумму транзакции"""
     amount = transaction["operationAmount"]["amount"]
     code = transaction["operationAmount"]["currency"]["code"]
