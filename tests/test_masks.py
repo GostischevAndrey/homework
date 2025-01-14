@@ -10,11 +10,11 @@ def test_get_mask_card_number_basic() -> None:
 @pytest.mark.parametrize(
     "value, expected",
     [
-        ("4276060032300678000000000", "некорректный ввод"),
-        ("zhyenkfudjlpdoiu", "некорректный ввод"),
-        ("1l4.dlg8pr-a8]6m", "некорректный ввод"),
-        ("4276060032300", "некорректный ввод"),
-        ("", "некорректный ввод"),
+        ("4276060032300678000000000", "Некорректный ввод"),
+        ("zhyenkfudjlpdoiu", "Некорректный ввод"),
+        ("1l4.dlg8pr-a8]6m", "Некорректный ввод"),
+        ("4276060032300", "Некорректный ввод"),
+        ("", "Некорректный ввод"),
     ],
 )
 def test_get_mask_card_number_various_input_data(value, expected) -> None:
@@ -28,11 +28,11 @@ def test_get_mask_account_basic() -> None:
 @pytest.mark.parametrize(
     "value, expected",
     [
-        ("1234567890123456789012365", "некорректный ввод"),
-        ("p2o6jdmb80djeyabd,97", "некорректный ввод"),
-        ("dfngjdfgdf;gjkdgjief", "некорректный ввод"),
-        ("12345678901234567", "некорректный ввод"),
-        ("", "некорректный ввод"),
+        ("1234567890123456789012365", "Некорректный ввод"),
+        ("p2o6jdmb80djeyabd,97", "Некорректный ввод"),
+        ("dfngjdfgdf;gjkdgjief", "Некорректный ввод"),
+        ("12345678901234567", "Некорректный ввод"),
+        ("", "Некорректный ввод"),
     ],
 )
 def test_get_mask_account_various_input_data(value, expected) -> None:
