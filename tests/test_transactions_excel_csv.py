@@ -23,3 +23,19 @@ def test_transactions_csv():
         expected_result = []
         assert result == expected_result
         mock_read_csv.assert_called_once_with('dummy_file.csv', sep=';')
+
+
+def test_read_transactions_csv_file_not_found():
+    with patch('pandas.read_csv', side_effect=FileNotFoundError):
+        result = read_transactions_csv('non_existent_file.csv')
+
+        expected = []
+        assert result == expected, f'Expected {expected}, but got {result}'
+
+
+def test_read_transactions_excel_file_not_found():
+    with patch('pandas.read_excel', side_effect=FileNotFoundError):
+        result = read_transactions_excel('non_existent_file.xlsx')
+
+        expected = []
+        assert result == expected, f'Expected {expected}, but got {result}'
