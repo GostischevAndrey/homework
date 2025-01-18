@@ -21,7 +21,7 @@ def get_date(date_and_time: str) -> str:
     """Функция, преобразующая date_and_time в ДД.ММ.ГГГГ"""
     if type(date_and_time) is not str:
         return "Неверный тип данных"
-    if len(date_and_time) == 26 and date_and_time[4] == "-" and date_and_time[7] == "-" and date_and_time[-7] == ".":
+    if len(date_and_time) <= 26 and date_and_time[4] == "-" and date_and_time[7] == "-":
         incorrect_date = f"{date_and_time[8:10]}.{date_and_time[5:7]}.{date_and_time[0:4]}"
         return incorrect_date
     return "Некорректное значение даты"

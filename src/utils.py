@@ -47,8 +47,3 @@ def transaction_amount(trans: dict, currency: str = "RUB") -> Any:
         amount = get_amount(trans)
         transaction_amount_logger.info("Код валюты транзакции не RUB, делаем конвертацию")
     return amount
-
-# Для проверки функций
-# if __name__ == "__main__":
-#     transactions = load_transactions_from_json('../data/operations.json')
-#     print(transactions)
